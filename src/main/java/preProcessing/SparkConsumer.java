@@ -183,7 +183,8 @@ System.out.println("Message   : "+v1._2);
 			@Override
 			public void call(JavaRDD<RawData> rdd) throws Exception {
 				
-				System.out.println("Writing to Table");
+			
+				
 				com.datastax.spark.connector.japi.CassandraJavaUtil.javaFunctions(rdd).writerBuilder("thermostat", "rawdata_by_icdid", CassandraJavaUtil.mapToRow(RawData.class)).saveToCassandra();
 			
 			}
